@@ -1,5 +1,5 @@
 #################################################################################################
-## File created by QxEntityEditor 1.2.3 (2018/11/30 09:04) : please, do NOT modify this file ! ##
+## File created by QxEntityEditor 1.2.3 (2018/12/02 15:06) : please, do NOT modify this file ! ##
 #################################################################################################
 
 include($$PWD/../../../QxOrm.pri)
@@ -16,7 +16,7 @@ TARGET = KPId
 TARGET = KPI
 } # CONFIG(debug, debug|release)
 
-LIBS += -L"$$PWD/../../../lib"
+LIBS += -L"$$PWD/../../../lib$${LIBDIR}"
 
 CONFIG(debug, debug|release) {
 LIBS += -l"QxOrmd"

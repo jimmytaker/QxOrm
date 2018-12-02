@@ -1,5 +1,5 @@
 /************************************************************************************************
-** File created by QxEntityEditor 1.2.3 (2018/11/30 09:04) : please, do NOT modify this file ! **
+** File created by QxEntityEditor 1.2.3 (2018/12/02 15:06) : please, do NOT modify this file ! **
 ************************************************************************************************/
 
 #include "../include/KPI_precompiled_header.gen.h"
@@ -23,13 +23,12 @@ void register_class(QxClass<kpi::Type> & t)
 
    t.setName("t_Type");
 
-   pData = t.id(& kpi::Type::m_TypeId, "TypeId", 0);
-   pData->setName("Type_id");
+   pData = t.id(& kpi::Type::m_Type_id, "Type_id", 0);
 
    pData = t.data(& kpi::Type::m_Name, "Name", 0, true, true);
    pData = t.data(& kpi::Type::m_Def, "Def", 0, true, true);
 
-   pRelation = t.relationOneToMany(& kpi::Type::m_list_of_KPI, "list_of_KPI", "TypeId", 0);
+   pRelation = t.relationOneToMany(& kpi::Type::m_list_of_KPI, "list_of_KPI", "Type_id", 0);
 
    qx::QxValidatorX<kpi::Type> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -38,13 +37,13 @@ void register_class(QxClass<kpi::Type> & t)
 
 namespace kpi {
 
-Type::Type() : m_TypeId(0) { ; }
+Type::Type() : m_Type_id(0) { ; }
 
-Type::Type(const long & id) : m_TypeId(id) { ; }
+Type::Type(const long & id) : m_Type_id(id) { ; }
 
 Type::~Type() { ; }
 
-long Type::getTypeId() const { return m_TypeId; }
+long Type::getType_id() const { return m_Type_id; }
 
 QString Type::getName() const { return m_Name; }
 
@@ -56,7 +55,7 @@ Type::type_list_of_KPI & Type::list_of_KPI() { return m_list_of_KPI; }
 
 const Type::type_list_of_KPI & Type::list_of_KPI() const { return m_list_of_KPI; }
 
-void Type::setTypeId(const long & val) { m_TypeId = val; }
+void Type::setType_id(const long & val) { m_Type_id = val; }
 
 void Type::setName(const QString & val) { m_Name = val; }
 
@@ -68,11 +67,11 @@ Type::type_list_of_KPI Type::getlist_of_KPI(bool bLoadFromDatabase, const QStrin
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_KPI(); }
-   QString sRelation = "{TypeId} | list_of_KPI";
+   QString sRelation = "{Type_id} | list_of_KPI";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    kpi::Type tmp;
-   tmp.m_TypeId = this->m_TypeId;
+   tmp.m_Type_id = this->m_Type_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_list_of_KPI = tmp.m_list_of_KPI; }
    if (pDaoError) { (* pDaoError) = daoError; }
@@ -83,11 +82,11 @@ Type::type_list_of_KPI & Type::list_of_KPI(bool bLoadFromDatabase, const QString
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_KPI(); }
-   QString sRelation = "{TypeId} | list_of_KPI";
+   QString sRelation = "{Type_id} | list_of_KPI";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    kpi::Type tmp;
-   tmp.m_TypeId = this->m_TypeId;
+   tmp.m_Type_id = this->m_Type_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_list_of_KPI = tmp.m_list_of_KPI; }
    if (pDaoError) { (* pDaoError) = daoError; }

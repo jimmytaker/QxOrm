@@ -1,5 +1,5 @@
 /************************************************************************************************
-** File created by QxEntityEditor 1.2.3 (2018/11/30 12:30) : please, do NOT modify this file ! **
+** File created by QxEntityEditor 1.2.3 (2018/12/02 15:06) : please, do NOT modify this file ! **
 ************************************************************************************************/
 
 #include "../include/KPI_precompiled_header.gen.h"
@@ -29,7 +29,7 @@ void register_class(QxClass<kpi::MetaDataKey> & t)
    pData->setIsUnique(true);
    pData = t.data(& kpi::MetaDataKey::m_Type, "Type", 0, true, true);
 
-   pRelation = t.relationOneToMany(& kpi::MetaDataKey::m_list_of_MetaData, "list_of_MetaData", "MetaKey", 0);
+   pRelation = t.relationOneToMany(& kpi::MetaDataKey::m_list_of_MetaData, "list_of_MetaData", "MetaDataKey_id", 0);
 
    qx::QxValidatorX<kpi::MetaDataKey> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
    pAllValidator->add_NotNull("Name");

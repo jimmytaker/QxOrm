@@ -1,22 +1,23 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2018-11-30T09:14:10
-#
-#-------------------------------------------------
-
 CONFIG(debug, debug|release) {
 FILESUFFIX = d
 }
 
 include($$PWD/../../../QxOrm.pri)
+QT += core
+QT -= gui
 
-QT       += core
+CONFIG += c++11
 
-TARGET = UniqueSavingBug
+TARGET = InsertWithRelationPerformance
+CONFIG += console
+CONFIG -= app_bundle
+
 TEMPLATE = app
 
+SOURCES += main.cpp
+
 # The following define makes your compiler emit warnings if you use
-# any feature of Qt which as been marked as deprecated (the exact warnings
+# any feature of Qt which as been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
@@ -34,6 +35,3 @@ LIBS += -L"../KPI/bin" \
     -L"$$PWD/../../../lib$${LIBDIR}"
 LIBS += -lKPI$${FILESUFFIX} \
     -lQxOrm$${FILESUFFIX}
-
-SOURCES += \
-        main.cpp \

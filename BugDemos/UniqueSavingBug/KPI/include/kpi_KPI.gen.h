@@ -1,5 +1,5 @@
 /************************************************************************************************
-** File created by QxEntityEditor 1.2.3 (2018/11/30 09:04) : please, do NOT modify this file ! **
+** File created by QxEntityEditor 1.2.3 (2018/12/02 15:06) : please, do NOT modify this file ! **
 ************************************************************************************************/
 
 #ifndef _KPI_KPI_KPI_H_
@@ -21,15 +21,15 @@ class KPI_EXPORT KPI
 
 public:
 
-   typedef std::shared_ptr<kpi::Type> type_TypeId;
-   typedef qx::QxCollection<long, std::shared_ptr<kpi::MetaData> > type_list_of_MetaData;
+   typedef std::shared_ptr<kpi::Type> type_Type_id;
+   typedef QVector<std::shared_ptr<kpi::MetaData> > type_list_of_MetaData;
 
 protected:
 
-   long m_KPIId;
+   long m_KPI_id;
    double m_Value;
    QDateTime m_DateTime;
-   type_TypeId m_TypeId;
+   type_Type_id m_Type_id;
    type_list_of_MetaData m_list_of_MetaData;
 
 public:
@@ -38,32 +38,32 @@ public:
    KPI(const long & id);
    virtual ~KPI();
 
-   long getKPIId() const;
+   long getKPI_id() const;
    double getValue() const;
    QDateTime getDateTime() const;
-   type_TypeId getTypeId() const;
+   type_Type_id getType_id() const;
    type_list_of_MetaData getlist_of_MetaData() const;
    type_list_of_MetaData & list_of_MetaData();
    const type_list_of_MetaData & list_of_MetaData() const;
 
-   void setKPIId(const long & val);
+   void setKPI_id(const long & val);
    void setValue(const double & val);
    void setDateTime(const QDateTime & val);
-   void setTypeId(const type_TypeId & val);
+   void setType_id(const type_Type_id & val);
    void setlist_of_MetaData(const type_list_of_MetaData & val);
 
-   type_TypeId getTypeId(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_Type_id getType_id(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_MetaData getlist_of_MetaData(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_MetaData & list_of_MetaData(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 
-   static QString relation_TypeId(bool key = false) { return (key ? QString("TypeId") : QString("Type_id")); }
+   static QString relation_Type_id(bool key = false) { Q_UNUSED(key); return "Type_id"; }
    static QString relation_list_of_MetaData(bool key = false) { Q_UNUSED(key); return "list_of_MetaData"; }
 
 public:
 
-   static QString column_KPIId(bool key = false) { return (key ? QString("KPIId") : QString("KPI_id")); }
+   static QString column_KPI_id(bool key = false) { Q_UNUSED(key); return "KPI_id"; }
    static QString column_Value(bool key = false) { Q_UNUSED(key); return "Value"; }
    static QString column_DateTime(bool key = false) { Q_UNUSED(key); return "DateTime"; }
 

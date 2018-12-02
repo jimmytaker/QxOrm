@@ -1,5 +1,5 @@
 /************************************************************************************************
-** File created by QxEntityEditor 1.2.3 (2018/11/30 09:04) : please, do NOT modify this file ! **
+** File created by QxEntityEditor 1.2.3 (2018/12/02 15:06) : please, do NOT modify this file ! **
 ************************************************************************************************/
 
 #ifndef _KPI_KPI_TYPE_H_
@@ -22,7 +22,7 @@ public:
 
 protected:
 
-   long m_TypeId;
+   long m_Type_id;
    QString m_Name;
    QByteArray m_Def;
    type_list_of_KPI m_list_of_KPI;
@@ -33,14 +33,14 @@ public:
    Type(const long & id);
    virtual ~Type();
 
-   long getTypeId() const;
+   long getType_id() const;
    QString getName() const;
    QByteArray getDef() const;
    type_list_of_KPI getlist_of_KPI() const;
    type_list_of_KPI & list_of_KPI();
    const type_list_of_KPI & list_of_KPI() const;
 
-   void setTypeId(const long & val);
+   void setType_id(const long & val);
    void setName(const QString & val);
    void setDef(const QByteArray & val);
    void setlist_of_KPI(const type_list_of_KPI & val);
@@ -54,7 +54,7 @@ public:
 
 public:
 
-   static QString column_TypeId(bool key = false) { return (key ? QString("TypeId") : QString("Type_id")); }
+   static QString column_Type_id(bool key = false) { Q_UNUSED(key); return "Type_id"; }
    static QString column_Name(bool key = false) { Q_UNUSED(key); return "Name"; }
    static QString column_Def(bool key = false) { Q_UNUSED(key); return "Def"; }
 

@@ -1,5 +1,5 @@
 /************************************************************************************************
-** File created by QxEntityEditor 1.2.3 (2018/11/30 12:30) : please, do NOT modify this file ! **
+** File created by QxEntityEditor 1.2.3 (2018/12/02 15:06) : please, do NOT modify this file ! **
 ************************************************************************************************/
 
 #ifndef _KPI_KPI_METADATA_H_
@@ -22,14 +22,14 @@ class KPI_EXPORT MetaData
 public:
 
    typedef QVector<std::shared_ptr<kpi::KPI> > type_list_of_KPI;
-   typedef std::shared_ptr<kpi::MetaDataKey> type_MetaKey;
+   typedef std::shared_ptr<kpi::MetaDataKey> type_MetaDataKey_id;
 
 protected:
 
    long m_MetaData_id;
    QString m_Value;
    type_list_of_KPI m_list_of_KPI;
-   type_MetaKey m_MetaKey;
+   type_MetaDataKey_id m_MetaDataKey_id;
 
 public:
 
@@ -42,21 +42,21 @@ public:
    type_list_of_KPI getlist_of_KPI() const;
    type_list_of_KPI & list_of_KPI();
    const type_list_of_KPI & list_of_KPI() const;
-   type_MetaKey getMetaKey() const;
+   type_MetaDataKey_id getMetaDataKey_id() const;
 
    void setMetaData_id(const long & val);
    void setValue(const QString & val);
    void setlist_of_KPI(const type_list_of_KPI & val);
-   void setMetaKey(const type_MetaKey & val);
+   void setMetaDataKey_id(const type_MetaDataKey_id & val);
 
    type_list_of_KPI getlist_of_KPI(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_KPI & list_of_KPI(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_MetaKey getMetaKey(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_MetaDataKey_id getMetaDataKey_id(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 
    static QString relation_list_of_KPI(bool key = false) { Q_UNUSED(key); return "list_of_KPI"; }
-   static QString relation_MetaKey(bool key = false) { Q_UNUSED(key); return "MetaKey"; }
+   static QString relation_MetaDataKey_id(bool key = false) { Q_UNUSED(key); return "MetaDataKey_id"; }
 
 public:
 

@@ -1,5 +1,5 @@
 /************************************************************************************************
-** File created by QxEntityEditor 1.2.3 (2018/11/30 09:04) : please, do NOT modify this file ! **
+** File created by QxEntityEditor 1.2.3 (2018/12/02 15:06) : please, do NOT modify this file ! **
 ************************************************************************************************/
 
 #ifndef _KPI_KPI_METADATAKEY_H_
@@ -18,7 +18,7 @@ class KPI_EXPORT MetaDataKey
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<kpi::MetaData> > type_list_of_MetaData;
+   typedef QVector<std::shared_ptr<kpi::MetaData> > type_list_of_MetaData;
 
 protected:
 

@@ -1,5 +1,5 @@
 /************************************************************************************************
-** File created by QxEntityEditor 1.2.3 (2018/11/30 12:30) : please, do NOT modify this file ! **
+** File created by QxEntityEditor 1.2.3 (2018/12/02 15:06) : please, do NOT modify this file ! **
 ************************************************************************************************/
 
 #include "../include/KPI_precompiled_header.gen.h"
@@ -29,7 +29,7 @@ void register_class(QxClass<kpi::MetaData> & t)
    pData = t.data(& kpi::MetaData::m_Value, "Value", 0, true, true);
 
    pRelation = t.relationManyToMany(& kpi::MetaData::m_list_of_KPI, "list_of_KPI", "t_qxee_KPI_MetaData", "MetaData_id", "KPIId", 0);
-   pRelation = t.relationManyToOne(& kpi::MetaData::m_MetaKey, "MetaKey", 0);
+   pRelation = t.relationManyToOne(& kpi::MetaData::m_MetaDataKey_id, "MetaDataKey_id", 0);
 
    qx::QxValidatorX<kpi::MetaData> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -54,7 +54,7 @@ MetaData::type_list_of_KPI & MetaData::list_of_KPI() { return m_list_of_KPI; }
 
 const MetaData::type_list_of_KPI & MetaData::list_of_KPI() const { return m_list_of_KPI; }
 
-MetaData::type_MetaKey MetaData::getMetaKey() const { return m_MetaKey; }
+MetaData::type_MetaDataKey_id MetaData::getMetaDataKey_id() const { return m_MetaDataKey_id; }
 
 void MetaData::setMetaData_id(const long & val) { m_MetaData_id = val; }
 
@@ -62,7 +62,7 @@ void MetaData::setValue(const QString & val) { m_Value = val; }
 
 void MetaData::setlist_of_KPI(const MetaData::type_list_of_KPI & val) { m_list_of_KPI = val; }
 
-void MetaData::setMetaKey(const MetaData::type_MetaKey & val) { m_MetaKey = val; }
+void MetaData::setMetaDataKey_id(const MetaData::type_MetaDataKey_id & val) { m_MetaDataKey_id = val; }
 
 MetaData::type_list_of_KPI MetaData::getlist_of_KPI(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -94,19 +94,19 @@ MetaData::type_list_of_KPI & MetaData::list_of_KPI(bool bLoadFromDatabase, const
    return m_list_of_KPI;
 }
 
-MetaData::type_MetaKey MetaData::getMetaKey(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+MetaData::type_MetaDataKey_id MetaData::getMetaDataKey_id(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getMetaKey(); }
-   QString sRelation = "{MetaData_id} | MetaKey";
+   if (! bLoadFromDatabase) { return getMetaDataKey_id(); }
+   QString sRelation = "{MetaData_id} | MetaDataKey_id";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    kpi::MetaData tmp;
    tmp.m_MetaData_id = this->m_MetaData_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_MetaKey = tmp.m_MetaKey; }
+   if (! daoError.isValid()) { this->m_MetaDataKey_id = tmp.m_MetaDataKey_id; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_MetaKey;
+   return m_MetaDataKey_id;
 }
 
 } // namespace kpi
